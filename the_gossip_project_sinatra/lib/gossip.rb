@@ -4,7 +4,7 @@ Bundler.require
 class Gossip
   attr_accessor :content, :author
 
-  def initialize(author,content)
+  def initialize(author, content)
     @content = content
     @author = author
   end
@@ -25,5 +25,17 @@ class Gossip
     all_gossips << Gossip.new(csv_line[0], csv_line[1])
     end
   return all_gossips
+  end
+
+  #Pour récapituler, nous allons :
+
+  #Créer une route dynamique pour qu'à chaque fois qu'un utilisateur rentre une URL du type http://localhost:4567/gossips/x/, Sinatra comprenne que l'on veut voir la page show du potin N°x en BDD ;
+  #Récupérer dans notre BDD le potin N°x avec une belle méthode #find ;
+  #Afficher le contenu du potin dans la page show.
+
+  def self.find(id)
+    gossip = [] #je crée un nouveau tableau pour afficher le potin correspondant à l'id
+    gossip << Gossip.all[id.to_i] #je renvoie la méthode all afin de récupéré le tableau all_gossips
+      return gossip
   end
 end

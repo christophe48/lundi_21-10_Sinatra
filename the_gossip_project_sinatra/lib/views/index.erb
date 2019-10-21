@@ -6,10 +6,14 @@
 
   <body>
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <% gossips.each do |gossip| %>
+    <% gossips.each_with_index do |gossip,index| %>
         <p>
-          <%= gossip.author %><br/>
+    <h2>  <a href= "http://localhost:4567/gossips/<%=index%>/">  Potins n°<%=index%> </a> </h2> <br/>
+          <%= gossip.author %> <br/>
           <%= gossip.content %>
+
+
+
         </p>
       <% end %>
   </body>
