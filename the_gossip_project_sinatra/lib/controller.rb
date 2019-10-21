@@ -18,9 +18,12 @@ class ApplicationController < Sinatra::Base
   end
 
     get '/gossips/:id/' do
-  erb :show, locals: {gossips: Gossip.find(params['id'])} #je fais appel à mon fichier show,et j'applique mes methode all et find tout en précisant que mon id doit être un Intenger
+  erb :show, locals: {gossips: Gossip.find(params['id'].to_i)} #je fais appel à mon fichier show,et j'applique mes methode all et find tout en précisant que mon id doit être un Intenger
   end
 
+    get '/gossips/:id/edit/' do
+  erb :edit
+  end
 
 end
   #Et quand tu vas soumettre le formulaire, voici ce qui va se passer :

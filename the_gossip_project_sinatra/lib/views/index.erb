@@ -6,11 +6,14 @@
 
   <body>
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <% gossips.each_with_index do |gossip,index| %>
+  <h3>  <a href= "http://localhost:4567/gossips/new/">  Crée ton potin! </a> <h3>
+    <br/>
+    <% gossips.each_with_index do |gossip,index| #le each_with_index me permet d'incrementer une variable autre que celle des cellules%>
         <p>
-    <h2>  <a href= "http://localhost:4567/gossips/<%=index%>/">  Potins n°<%=index%> </a> </h2> <br/>
+    <h2>  <a href= "http://localhost:4567/gossips/<%=index%>/">  Potin n°<%=index%> </a> </h2> <br/>
           <%= gossip.author %> <br/>
-          <%= gossip.content %>
+          <%= gossip.content %> <br/>
+          <a href= "http://localhost:4567/gossips/<%=index%>/edit/"> Edit </a>
 
 
 

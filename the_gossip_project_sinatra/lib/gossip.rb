@@ -38,4 +38,12 @@ class Gossip
     gossip << Gossip.all[id.to_i] #je renvoie la méthode all afin de récupéré le tableau all_gossips
       return gossip
   end
+
+  def self.update #je créé une méthode pour permettre d'éditer ce qu'il y a marquer dans le csv
+        CSV.read("./db/gossip.csv").each do |csv_line|
+        all_gossips << Gossip.new(csv_line[0], csv_line[1])
+        gossip_author = new_gossip_author
+        gossip_content = new_gossip_content
+    end
+  end
 end
